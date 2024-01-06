@@ -11,58 +11,57 @@ import (
 	"github.com/gorilla/mux"
 )
 
-var NewService models.Service
+var NewSupplier models.Supplier
 
-func CreateService(w http.ResponseWriter, r *http.Request) {
-	CreateService := &models.Service{}
-	err := utils.ParseBody(r, CreateService)
+func CreateSupplier(w http.ResponseWriter, r *http.Request) {
+	CreateSupplier := &models.Supplier{}
+	err := utils.ParseBody(r, CreateSupplier)
 	if err != nil {
 		utils.ToJson(w, err.Error(), http.StatusUnprocessableEntity)
 		return
 	}
-	NewService := CreateService.CreateService()
-	utils.ToJson(w, NewService, http.StatusCreated)
+	NewSupplier := CreateSupplier.CreateSupplier()
+	utils.ToJson(w, NewSupplier, http.StatusCreated)
 }
 
-func GetServices(w http.ResponseWriter, r *http.Request) {
-	services := models.GetAllServices()
-	utils.ToJson(w, services, http.StatusOK)
+func GetSuppliers(w http.ResponseWriter, r *http.Request) {
+	suppliers := models.GetAllSuppliers()
+	utils.ToJson(w, suppliers, http.StatusOK)
 }
 
-func GetService(w http.ResponseWriter, r *http.Request) {
+func GetSupplier(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	Id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
 		fmt.Println("Error while parsing")
 	}
-	service, _ := models.GetServiceById(Id)
-	utils.ToJson(w, service, http.StatusOK)
+	supplier, _ := models.GetSupplierById(Id)
+	utils.ToJson(w, supplier, http.StatusOK)
 }
 
-func UpdateService(w http.ResponseWriter, r *http.Request) {
+func UpdateSupplier(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	Id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
 		fmt.Println("Error while parsing")
 	}
-	UpdateService := &models.Service{}
-	err = json.NewDecoder(r.Body).Decode(UpdateService)
+	UpdatedSupplier := &models.Supplier{}
+	err = json.NewDecoder(r.Body).Decode(UpdatedSupplier)
 	if err != nil {
 		fmt.Println("Error while decoding")
 	}
-	service := UpdateService.UpdateService(Id)
-	utils.ToJson(w, service, http.StatusOK)
+	UpdatedSupplier.ID = uint(Id)
+	supplier := UpdatedSupplier.UpdateSupplier(Id)
+	utils.ToJson(w, supplier, http.StatusOK)
 }
 
-func DeleteService(w http.ResponseWriter, r *http.Request) {
+func DeleteSupplier(w http.ResponseWriter, r *http.Request) {
 
 	vars := mux.Vars(r)
 	Id, err := strconv.ParseInt(vars["id"], 10, 64)
 	if err != nil {
 		fmt.Println("Error while parsing")
 	}
-	service := models.DeleteService(Id)
-	utils.ToJson(w, service, http.StatusOK)
+	supplier := models.DeleteSupplier(Id)
+	utils.ToJson(w, supplier, http.StatusOK)
 }
-
-

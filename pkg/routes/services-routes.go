@@ -6,12 +6,11 @@ import (
 	"github.com/KNLopez/postgresGo/pkg/controllers"
 )
 
-
-var RegisterServiceRoutes = func(router *mux.Router) {
+var RegisterSupplierRoutes = func(router *mux.Router) {
 	// add controller to route
-	router.HandleFunc("/api/service", controllers.CreateService).Methods("POST")
-	router.HandleFunc("/api/service", controllers.GetServices).Methods("GET")
-	router.HandleFunc("/api/service/{id}", controllers.GetService).Methods("GET")
-	router.HandleFunc("/api/service/{id}", controllers.UpdateService).Methods("PUT")
-	router.HandleFunc("/api/service/{id}", controllers.DeleteService).Methods("DELETE")
+	router.HandleFunc("/api/supplier", controllers.CreateSupplier).Methods("POST")
+	router.HandleFunc("/api/supplier", controllers.GetSuppliers).Methods("GET")
+	router.HandleFunc("/api/supplier/{id}", controllers.GetSupplier).Methods("GET")
+	router.HandleFunc("/api/supplier/{id}", controllers.UpdateSupplier).Methods("PUT")
+	router.HandleFunc("/api/supplier/{id}", controllers.DeleteSupplier).Methods("DELETE")
 }

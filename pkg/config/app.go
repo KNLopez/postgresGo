@@ -7,7 +7,6 @@ import (
 
 var DB *gorm.DB
 
-
 func Connect() {
 	dsn := "host=db user=postgres password=postgres dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Shanghai"
 	database, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
@@ -16,7 +15,6 @@ func Connect() {
 	}
 	DB = database
 }
-
 
 func GetDB() *gorm.DB {
 	return DB

@@ -6,7 +6,6 @@ import (
 	"net/http"
 )
 
-
 func ParseBody(r *http.Request, dst interface{}) error {
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {

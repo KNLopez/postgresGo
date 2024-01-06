@@ -8,12 +8,9 @@ import (
 	"github.com/gorilla/mux"
 )
 
-
 func main() {
-	
 	router := mux.NewRouter()
-	routes.RegisterServiceRoutes(router)
+	routes.RegisterSupplierRoutes(router)
 	http.Handle("/", router)
 	log.Fatal(http.ListenAndServe(":8080", router))
-	
 }
