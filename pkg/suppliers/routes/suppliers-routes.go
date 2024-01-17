@@ -3,7 +3,7 @@ package routes
 import (
 	"github.com/gorilla/mux"
 	// import controller
-	"github.com/KNLopez/postgresGo/pkg/controllers"
+	"github.com/KNLopez/postgresGo/pkg/suppliers/controllers"
 )
 
 var RegisterSupplierRoutes = func(router *mux.Router) {

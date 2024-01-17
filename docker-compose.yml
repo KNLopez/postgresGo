@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   app:
@@ -11,6 +11,8 @@ services:
     develop:
       watch:
         - action: rebuild
+    depends_on:
+      - db
 
   db:
     image: postgres:9.6

@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/KNLopez/postgresGo/pkg/models"
-	"github.com/KNLopez/postgresGo/pkg/utils"
+	"github.com/KNLopez/postgresGo/pkg/suppliers/models"
+	"github.com/KNLopez/postgresGo/pkg/suppliers/utils"
 	"github.com/gorilla/mux"
 )
 

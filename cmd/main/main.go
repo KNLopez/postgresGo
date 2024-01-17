@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/KNLopez/postgresGo/pkg/routes"
+	"github.com/KNLopez/postgresGo/pkg/suppliers/routes"
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
